@@ -5,14 +5,16 @@
 	<body>
 		<form action="index.php" method="post">
 		<?php
-		
+        $carsNames = array("v40", "x3", "Corolla");
 		create_buttons();
 		function create_buttons()
 		{
-			for ($i = 1; $i <= 50 ; $i++)
+            $cars = array("Volvo", "BMW", "Toyota");
+			for ($i = 1; $i <= 3 ; $i++)
 			{
+                echo 'Car brand '.$cars[$i-1].'   ';
 				echo '<input type="submit" name="button['.$i.']"
-				value="BUTTON '.$i.' " style=width:250px;height:25px/>';
+				value="Add to cart" style=width:250px;height:25px/></br>';
 			
 			}
 		}
@@ -20,7 +22,8 @@
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$x = key($_POST['button']);
-			echo "<script>alert('You clicked on button $x');</script>";
+            $Output= $carsNames[$x-1];
+			echo "<script>alert('You clicked on button $x $Output');</script>";
 		}
 		?>
    </form>
